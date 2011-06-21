@@ -1,0 +1,12 @@
+name: ItemStacker
+main: streammz.itemstacker.Core
+version: 0.0.1
+website: http://www.gamesketch.net
+author: Streammz
+description: >
+             Stacks the item in your hand
+commands:
+  stack:
+    description: Stacks the item in your hand
+    usage: |
+           /<command>
