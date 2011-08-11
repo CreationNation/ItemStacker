@@ -45,8 +45,10 @@ public class Core extends JavaPlugin {
 			//Air stacking check
 			if (handMat.equals(Material.AIR)) {
 				p.sendMessage(ChatColor.AQUA + "You try to puzzle your hands together, but it looks nasty.");
+				return true;
 			}
 			//Permissions
+			if (hasPermission(p, "itemstacker.debug")) p.sendMessage("Looking for node: " + "itemstacker." + handMat.getId());
 			if (!hasPermission(p, "itemstacker." + handMat.getId())) {
 				p.sendMessage(ChatColor.AQUA + "You try to puzzle your " + handMat.name().toLowerCase() + " together, but it doesn't fit");
 				return true;
@@ -98,7 +100,8 @@ public class Core extends JavaPlugin {
 					else ItemStackNow = new ItemStack(handMat, max, (short)-1);
 				}
 				
-				inv.setItem(inv.firstEmpty(), ItemStackNow);
+				
+				inv.addItem(ItemStackNow);
 				amount -= max;
 			}
 			
